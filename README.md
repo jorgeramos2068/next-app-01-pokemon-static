@@ -1,3 +1,7 @@
+# Pokemon Static App
+
+Next.js application that implements an example of the use of the generation of static pages.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
