@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
-import { Card, Grid, Row, Text } from '@nextui-org/react';
-import { MainLayout } from '@/components/layouts';
+import { Grid } from '@nextui-org/react';
 import { pokeapi } from '@/api';
+import { MainLayout } from '@/components/layouts';
+import { PokemonCard } from '@/components/pokemon';
 import { PokemonListResponse, PokemonResult } from '@/interfaces';
 
 interface Props {
@@ -13,20 +14,8 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
     <MainLayout title="Pokemon App | Pokemon List">
       <h1>Pokemon App</h1>
       <Grid.Container gap={2} justify="flex-start">
-        {pokemons.map(({ id, name, url, img }) => (
-          <Grid key={id} xs={12} sm={3} md={2} xl={1}>
-            <Card isHoverable isPressable>
-              <Card.Body css={{ p: 1 }}>
-                <Card.Image height={140} src={img} width="100%" />
-              </Card.Body>
-              <Card.Footer>
-                <Row justify="space-between">
-                  <Text transform="capitalize">{name}</Text>
-                  <Text># {id}</Text>
-                </Row>
-              </Card.Footer>
-            </Card>
-          </Grid>
+        {pokemons.map(pokemon => (
+          <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </Grid.Container>
     </MainLayout>
