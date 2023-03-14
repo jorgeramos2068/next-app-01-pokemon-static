@@ -1,1 +1,2 @@
-export * from './pokemon-list-response';
+export * from './pokemon-list';
+export * from './pokemon-item';

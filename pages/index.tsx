@@ -3,7 +3,7 @@ import { Grid } from '@nextui-org/react';
 import { pokeapi } from '@/api';
 import { MainLayout } from '@/components/layouts';
 import { PokemonCard } from '@/components/pokemon';
-import { PokemonListResponse, PokemonResult } from '@/interfaces';
+import { PokemonList, PokemonResult } from '@/interfaces';
 
 interface Props {
   pokemons: PokemonResult[];
@@ -23,7 +23,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  const { data } = await pokeapi.get<PokemonListResponse>('/pokemon?limit=151');
+  const { data } = await pokeapi.get<PokemonList>('/pokemon?limit=151');
   const pokemons: PokemonResult[] = data.results.map(({ name, url }) => {
     const splittedUrl = url.split('/');
     const id = splittedUrl[splittedUrl.length - 2];
